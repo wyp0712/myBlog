@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/embed.min.css">
+    <title>{{ config.title | escape }}</title>
+</head>
+<body>
+
+    <h1 class="post-title">{{ post.title || excape}}</h1>
+    <p>日期: {{ post.date|escape }}</p>
+
+    <hr>
+
+    <div class="post-content">
+        {{ post.content }}
+    </div>
+
+    <!-- 多说评论框 -->
+    <div class="ds-thread" style="height: 800px" data-thread-key="" data-title="{{ post.title | escape }}" data-url="">
+
+    </div>
+    <!-- 多说评论框end -->
+     <!-- 多说公共js代码 start(一个网页只需要插入一次) -->
+
+     <!-- <script src="/assets/index.js"></script> -->
+     <script>
+       let duoshuoQuery = {
+           short_name: 'node-in-action-blog'
+       };
+
+       (function() {
+          let ds = document.createElement('script');
+          ds.type = 'text/javascript';
+          ds.async = true;
+        //   ds.src = '/assets/index.js'
+          ds.src = (document.location.protocol == 'https:'? 'https:' : 'http:') + '//unpkg.com/embed-js@5.0.3/umd/embed.js';
+          ds.charset = 'UTF-8';
+          
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds)
+       })();
+     
+     </script>
+    
+</body>
+</html>
